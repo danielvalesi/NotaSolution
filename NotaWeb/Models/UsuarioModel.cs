@@ -13,8 +13,8 @@ namespace NotaWeb.Models
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = @"select * from Usuario 
-                where Email = @email AND Senha = @senha";
+            cmd.CommandText = @"select * from Usuarios
+                where email = @email AND senha = @senha";
 
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@senha", senha);
@@ -24,26 +24,27 @@ namespace NotaWeb.Models
             if (reader.Read())
             {
                 // Polimorfismo
-                if ((string)reader["Tipo"] == "Professor")
+                if ((string)reader["tipo"] == "Funcionarios")
                 {
-                    Professor professor = new Professor();
-                    professor.Id = (int)reader["Id"];
-                    professor.Nome = (string)reader["Nome"];
-                    professor.Email = (string)reader["Email"];
-                    professor.Tipo = (string)reader["Tipo"];
-                    professor.Titulo = (string)reader["Titulo"];
+                    Funcionario funcionario = new Funcionario();
+                    funcionario.Pessoa_id = (int)reader["Pessoa_id"];
+                    funcionario.Nome = (string)reader["Nome"];
+                    funcionario.Email = (string)reader["Email"];
+                    funcionario.Cargo = (string)reader["Cargo"];
+                   
 
-                    return professor;
+                    return funcionario;
                 }
                 else
                 {
-                    Aluno aluno = new Aluno();
-                    aluno.Id = (int)reader["Id"];
-                    aluno.Nome = (string)reader["Nome"];
-                    aluno.Email = (string)reader["Email"];
-                    aluno.Tipo = (string)reader["Tipo"];
+                    Cliente cliente = new Cliente();
+                    cliente.Pessoa_id = (int)reader["Pessoa_id"];
+                    cliente.Nome = (string)reader["Nome"];
+                    cliente.Email = (string)reader["Email"];
+                    //cliente.PorcentagemDesconto = (decimal)reader["PorcentagemDesconto"];
 
-                    return aluno;
+
+                    return cliente;
                 }
             }
 

@@ -11,7 +11,7 @@ using NotaWeb.Filtros;
 namespace NotaWeb.Controllers
 {
     [Autorizacao]
-    public class DisciplinaController : Controller
+    public class ItensController : Controller
     {
         public ActionResult Index()
         {
@@ -23,8 +23,8 @@ namespace NotaWeb.Controllers
             using (DisciplinaModel model = new DisciplinaModel())
             {
                 // Recuperando a sessao
-                Professor p = (Professor) Session["usuario"];
-                return View(model.Read(p.Id));
+                Funcionario p = (Funcionario) Session["usuario"];
+                return View(model.Read(p.Pessoa_id));
             }
                 
         }
@@ -36,11 +36,11 @@ namespace NotaWeb.Controllers
         public ActionResult Create()
         {
             // Abre a conexão em model
-            using (ProfessorModel model = new ProfessorModel())
+            using (FuncionarioModel model = new FuncionarioModel())
             {
                 // inserir método
                 // Tipo de dado dinamico -- vai conter todos os professores cadastrados
-                ViewBag.Professores = model.Read();
+                ViewBag.Funcionarios = model.Read();
 
             } // fecha conexao
             return View();
@@ -48,7 +48,7 @@ namespace NotaWeb.Controllers
 
         // Executar por Post - pega dados do form e insere no banco
         [HttpPost]
-        public ActionResult Create(Disciplina entity)
+        public ActionResult Create(Itens entity)
         {
             // toda vez q for acessar o banco
             using (DisciplinaModel model = new DisciplinaModel())

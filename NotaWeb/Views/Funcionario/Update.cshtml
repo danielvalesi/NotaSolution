@@ -1,0 +1,106 @@
+﻿@model NotaWeb.Entity.Funcionario
+@{
+    ViewBag.Title = "Editar Funcionario";
+    Layout = "~/Views/Shared/_Template.cshtml";
+}
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">EDITAR FUNCIONÁRIO</h3>
+            <div class="panel-options">
+                <a href="#" data-toggle="panel">
+                    <span class="collapse-icon">–</span>
+                    <span class="expand-icon">+</span>
+                </a>
+                <a href="#" data-toggle="remove">
+                    ×
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+
+            <form action="/funcionario/update" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <input type="hidden" name="Pessoa_id" value="@Model.Pessoa_id" />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="nome">Nome</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nome" name="nome" value="@Model.Nome">
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="email">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email" value="@Model.Email">
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="senha">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="senha" name="senha" value="@Model.Senha">
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="cpf">CPF</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="cpf" name="cpf" value="@Model.Cpf">
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="horaEntrada">Hora Entrada</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="horaEntrada" name="horaEntrada" value="@Model.HorarioEntrada">
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="horaSaida">Hora Saída</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="horaSaida" name="horaSaida" value="@Model.HorarioSaida">
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+
+
+
+                <div class="form-group">
+                    <a href="/funcionario/index" class="btn btn-gray btn-single">CANCELAR</a>
+                    
+                    <button type="submit" class="btn btn-info btn-single pull-right">ATUALIZAR</button>
+                </div>
+
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

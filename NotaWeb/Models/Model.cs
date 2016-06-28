@@ -16,7 +16,7 @@ namespace NotaWeb.Models
         {
             // String de conexão
             string strConn = @"Data source=localhost;
-                               Initial Catalog=BDNotas;
+                               Initial Catalog=cardapioDigital;
                                 Integrated Security=true";
             conn = new SqlConnection(strConn);
             conn.Open();

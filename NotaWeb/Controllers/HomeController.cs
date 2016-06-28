@@ -11,7 +11,7 @@ namespace NotaWeb.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Hom
+        // GET: Home
         public ActionResult Index()
         {
             return View();
@@ -38,13 +38,13 @@ namespace NotaWeb.Controllers
                     Session.Timeout = 60;
 
                     // Redireciona o tipo pessoa para pagina correta
-                    if(pessoa is Professor)
+                    if(pessoa is Funcionario)
                     {
                         return RedirectToAction("Index", "Disciplina");
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Nota");
+                        return RedirectToAction("Index", "Dashboard");
                     }
                     
                 }
@@ -66,13 +66,13 @@ namespace NotaWeb.Controllers
         [HttpPost]
         public ActionResult Registro(FormCollection form)
         {
-            Professor p = new Professor();
+            Funcionario p = new Funcionario();
             p.Nome = form["nome"];
             p.Email = form["email"];
             p.Senha = form["senha"];
-            p.Titulo = form["titulo"];
+         
 
-            using (ProfessorModel model = new ProfessorModel())
+            using (FuncionarioModel model = new FuncionarioModel())
             {
                 model.Create(p);
                 return RedirectToAction("Index");

@@ -5,13 +5,13 @@ using System.Web;
 
 namespace NotaWeb.Entity
 {
-    public class Disciplina
+    public class Itens
     {
         public int Id { get; set; }
-        public int IdProfessor { get; set; }
+        public int Funcionario_id { get; set; }
         public string Nome { get; set; }
 
         // Classes Associadas
-        public Professor Professor { get; set; }
+        public Funcionario Funcionario { get; set; }
     }
 }

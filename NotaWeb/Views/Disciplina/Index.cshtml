@@ -1,5 +1,5 @@
 ﻿@using System.Activities.Statements
-@model IEnumerable<NotaWeb.Entity.Disciplina>
+@model IEnumerable<NotaWeb.Entity.Itens>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,8 +18,8 @@
     @foreach (var d in Model)
     {
         <tr>
-            <td>@d.Nome</td>
-            <td><a href="/nota/relatorio/@d.Id">Relatório</a></td>
+            <td>@d.Funcionario_id</td>
+            <td><a href="/nota/relatorio/@d.Produto_id">Relatório</a></td>
         </tr>
     }
     </tbody>
